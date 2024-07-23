@@ -1,7 +1,7 @@
 
 <div class="Add Task">
     <div>
-        <button class="addtask">Add Task</button>
+        <button class="addtask" (click)="openModal()">Add Task</button>
     </div>
     <div class="search-container">
         <div class="search-box">
@@ -19,44 +19,69 @@
       </div>    
       <div class="task-container">
         <div class="columns">
-            <div class="column">
-              <div class="header-box">
-                <div class="column-header">To Do</div>
-              </div>
-              <div class="task-item">
-                <h4>Task 1</h4>
-                <h5>Description1</h5>
-                <p></p>
-                <div class="task-footer">
-                    <span class="created-time">Created at: </span>
-                    <div class="task-buttons-container">
-                        <button class="task-button-delete">Delete</button>
-                        <button class="task-button-edit">Edit</button>
-                        <button class="task-button-view-details">View Details</button>
-                    </div>
+          <div class="column" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'todo')">
+            <div class="header-box">
+              <div class="column-header">To Do</div>
+            </div>
+            <div *ngFor="let task of tasks.todo" class="task-item" 
+                 draggable="true" 
+                 (dragstart)="onDragStart($event, task)">
+              <h4>{{task.title}}</h4>
+              <h5>{{task.description}}</h5>
+              <p></p>
+              <div class="task-footer">
+                <span class="created-time">Created at: {{task.createdAt}}</span>
+                <div class="task-buttons-container">
+                  <button class="task-button-delete">Delete</button>
+                  <button class="task-button-edit">Edit</button>
+                  <button class="task-button-view-details">View Details</button>
                 </div>
-            </div>
-              <div class="task-item">Task 2</div>
-              <div class="task-item">Task 3</div>
-            </div>
-            <div class="column">
-              <div class="header-box">
-                <div class="column-header">In Progress</div>
               </div>
-              <div class="task-item">Task 1</div>
-              <div class="task-item">Task 2</div>
-              <div class="task-item">Task 3</div>
-            </div>
-            <div class="column">
-              <div class="header-box">
-                <div class="column-header">Done</div>
-              </div>
-              <div class="task-item">Task 1</div>
-              <div class="task-item">Task 2</div>
-              <div class="task-item">Task 3</div>
             </div>
           </div>
-          
+          <div class="column" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'inProgress')">
+            <div class="header-box">
+              <div class="column-header">In Progress</div>
+            </div>
+            <div *ngFor="let task of tasks.inProgress" class="task-item" 
+                 draggable="true" 
+                 (dragstart)="onDragStart($event, task)">
+              <h4>{{task.title}}</h4>
+              <h5>{{task.description}}</h5>
+              <p></p>
+              <div class="task-footer">
+                <span class="created-time">Created at: {{task.createdAt}}</span>
+                <div class="task-buttons-container">
+                  <button class="task-button-delete">Delete</button>
+                  <button class="task-button-edit">Edit</button>
+                  <button class="task-button-view-details">View Details</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column" (dragover)="onDragOver($event)" (drop)="onDrop($event, 'done')">
+            <div class="header-box">
+              <div class="column-header">Done</div>
+            </div>
+            <div *ngFor="let task of tasks.done" class="task-item" 
+                 draggable="true" 
+                 (dragstart)="onDragStart($event, task)">
+              <h4>{{task.title}}</h4>
+              <h5>{{task.description}}</h5>
+              <p></p>
+              <div class="task-footer">
+                <span class="created-time">Created at: {{task.createdAt}}</span>
+                <div class="task-buttons-container">
+                  <button class="task-button-delete">Delete</button>
+                  <button class="task-button-edit">Edit</button>
+                  <button class="task-button-view-details">View Details</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      
         
 </div>
+<app-add-task [isOpen]="isModalOpen" (close)="isModalOpen = false"></app-add-task>

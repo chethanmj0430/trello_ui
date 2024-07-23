@@ -61,7 +61,7 @@
   .header-box {
     background-color: blue;
     color: white;
-    height: 30px; /* Adjust height as needed */
+    height: 30px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,18 +80,19 @@
     padding: 10px;
     border-radius: 5px;
     margin: 5px;
+    cursor: move;
 }
 .created-time{
     color: black;
 }
 .task-footer{
     position: relative;
-    top: 10px;
+    top: 0px;
 }
 .task-buttons-container{
     position: relative;
-    top: 20px;
-    left: 80px;
+    top: -10px;
+    left: 180px;
 }
 .task-button-delete{
     border-radius: 3px;
@@ -119,4 +120,13 @@
     margin: 3px;
     border: none;
     padding: 3px;
+}
+
+.addtask {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
