@@ -1,0 +1,89 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4; /* Optional: Add a background color to the container */
+}
+
+.loginname {
+    position: relative;
+    bottom: 200px;
+    left: 60px;
+    color: blue;
+}
+
+.login.box {
+    padding: 40px;
+    border: 3px solid blue; /* Blue border around the login box */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Increased width of the form */
+    width: 100%;
+    background-color: white; /* Optional: Add background color to the box */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #aaa; /* Slightly darker border for input fields */
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: blue;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.login-form button:hover {
+    background-color: darkblue;
+}
+
+.additional-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.additional-links p {
+    margin: 10px 0;
+}
+
+.additional-links a {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.additional-links a:hover {
+    text-decoration: underline;
+}
+
+.google-login {
+    padding: 10px;
+    background-color: #db4437; /* Google red color */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 40%; /* 40% of the width of the login button */
+    max-width: 150px; /* Optional: Set a maximum width */
+    margin-top: 10px; /* Add some spacing between the login button and Google button */
+}
+
+.google-login:hover {
+    background-color: #c1351d; /* Darker Google red color */
+}
