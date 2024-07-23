@@ -46,6 +46,9 @@ export class TaskComponent {
   openModal() {
     this.isModalOpen = true;
   }
+  closeModal() {
+    this.isModalOpen = false;
+  }
 
   onDragStart(event: DragEvent, task: Task) {
     this.draggedTask = task;

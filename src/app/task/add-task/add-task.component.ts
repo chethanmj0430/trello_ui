@@ -24,6 +24,6 @@ export class AddTaskComponent {
   onSubmit() {
     console.log('Task Name:', this.taskName);
     console.log('Description:', this.description);
-    this.close(); // Close modal on form submit
+    this.close(); 
   }
 }
