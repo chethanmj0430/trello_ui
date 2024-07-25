@@ -11,19 +11,34 @@ import { FormsModule } from '@angular/forms';
 })
 export class AddTaskComponent {
 
-  @Input() isOpen: boolean = false;
-  @Output() closeModal = new EventEmitter<void>();
+  @Input() isModalOpen: boolean = false;
 
   taskName: string = '';
   description: string = '';
+  developers: string[] = [
+    'Harshitha',
+    'Deeksha',
+    'Swaroopa',
+    'Nischitha',
+    'Yatham',
+  ];
 
-  close() {
+
+  @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
+
+  onClose() {
     this.closeModal.emit();
   }
 
   onSubmit() {
-    console.log('Task Name:', this.taskName);
-    console.log('Description:', this.description);
-    this.close(); 
+    if (this.taskName && this.description) {
+      // Handle form submission logic
+      console.log('Task Name:', this.taskName);
+      console.log('Description:', this.description);
+
+      // Emit event to close modal after submission
+      this.onClose();
+    }
   }
+
 }

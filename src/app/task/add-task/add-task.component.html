@@ -1,24 +1,48 @@
-<div *ngIf="isOpen" class="modal-overlay">
+<div class="modal-overlay">
     <div class="modal-content">
       <div class="modal-header">
         <h2>Add Task</h2>
-        <button class="close-button" (click)="close()">×</button>
+        <button class="close-button" (click)="onClose()">×</button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
           <div class="form-group">
             <label for="taskName">Task Name</label>
-            <input type="text" id="taskName" name="taskName" [(ngModel)]="taskName" required>
+            <input
+              type="text"
+              id="taskName"
+              name="taskName"
+              [(ngModel)]="taskName"
+              required
+            />
           </div>
           <div class="form-group">
             <label for="description">Description</label>
-            <textarea id="description" name="description" [(ngModel)]="description" required></textarea>
+            <textarea
+              id="description"
+              name="description"
+              [(ngModel)]="description"
+              required
+            ></textarea>
+          </div>
+          <div class="assigned-to">
+            <label for="assignedTo">Assigned To</label>
+            <select
+              id="assignedTo"
+              name="assignedTo"
+            >
+              <option *ngFor="let developer of developers" [value]="developer">
+                {{ developer }}
+              </option>
+            </select>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="submit-button" (click)="onSubmit()">Add Task</button>
-        <button class="cancel-button" (click)="close()">Cancel</button>
+        <button type="submit" class="submit-button" (click)="onSubmit()">
+          Add Task
+        </button>
+        <button class="cancel-button" (click)="onClose()">Cancel</button>
       </div>
     </div>
   </div>

@@ -1,1 +1,29 @@
-<p>delete-task works!</p>
+<div class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Delete Task</h2>
+        <button class="close-button" (click)="onClose()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="task-name">
+          <span>{{ task?.name }}</span>
+          <hr />
+        </div>
+        <div>
+            <span>
+                Are you you want to delete this task?
+            </span>
+        </div>
+        <div>
+            <span>
+                Assigned to  <strong>{{ task?.assignedTo }}</strong>
+            </span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="submit-button">Delete</button>
+        <button class="cancel-button" (click)="onClose()">Close</button>
+      </div>
+    </div>
+  </div>
+  

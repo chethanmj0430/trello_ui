@@ -1,1 +1,56 @@
-<p>edit-task works!</p>
+<div class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Task</h2>
+        <button class="close-button" (click)="close()">×</button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()" #editTaskForm="ngForm">
+          <div class="task-name">
+            <span>{{ task?.name }}</span>
+            <hr />
+          </div>
+          <div class="task-description">
+            <label for="description" class="description-label">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              [(ngModel)]="task!.description" 
+              required
+              class="description-textarea"
+            ></textarea>
+          </div>
+          <div class="task-details-row">
+            <div class="assigned-to">
+              <label for="assignedTo">Assigned To</label>
+              <select
+                id="assignedTo"
+                name="assignedTo"
+                [(ngModel)]="task!.assignedTo" 
+                required
+              >
+                <option *ngFor="let developer of developers" [value]="developer">
+                  {{ developer }}
+                </option>
+              </select>
+            </div>
+            <div class="created-time">
+              <label for="createdTime">Created Time</label>
+              <input
+                type="text"
+                id="createdTime"
+                [value]="task?.createdTime | date: 'medium'" 
+                readonly
+                class="created-time-input"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="submit-button">Update</button>
+        <button class="cancel-button" (click)="close()">Cancel</button>
+    </div>
+    </div>
+  </div>
+  
